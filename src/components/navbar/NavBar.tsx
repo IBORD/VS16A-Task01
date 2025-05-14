@@ -1,22 +1,29 @@
-import Link from 'next/link'
-import React from 'react'
+import NavItem from '../navitem/NavItem';
 
-const NavBar: React.FC = () => {
-  return (
-    <nav className="bg-blue-800 text-white py-4">
-      <div className="container mx-auto px-4 flex space-x-6">
-        <Link href="/" className="hover:text-yellow-300">
-          Home
-        </Link>
-        <Link href="/menu2" className="hover:text-yellow-300">
-          Modelos Esportivos
-        </Link>
-        <Link href="/menu3" className="hover:text-yellow-300">
-          Clássicos
-        </Link>
-      </div>
-    </nav>
-  )
+interface NavBarProps {
+  items: {
+    href: string;
+    label: string;
+    icon?: React.ReactNode;
+  }[];
+  className?: string;
 }
+
+const NavBar = ({ items, className = '' }: NavBarProps) => {
+  return (
+    <nav className={`bg-blue-800 p-4 ${className}`}>
+      <ul className="flex space-x-4">
+        {items.map((item) => (
+          <NavItem 
+            key={item.href} 
+            href={item.href} 
+            label={item.label} 
+            icon={item.icon}
+          />
+        ))}
+      </ul>
+    </nav>
+  );
+};
 
 export default NavBar
