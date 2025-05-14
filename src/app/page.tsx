@@ -14,7 +14,7 @@ const HomePage: React.FC = () => {
         </div>
         <div>
           <p className="mb-4">
-            Explore o mundo dos carros esportivos e clássicos com a VS16A. 
+            Explore o mundo dos carros esportivos e clássicos. 
             Descubra os modelos mais rápidos, luxuosos e icônicos da história automotiva.
           </p>
           <p>
