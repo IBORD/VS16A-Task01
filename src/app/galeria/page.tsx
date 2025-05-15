@@ -15,8 +15,8 @@ const GalleryPage = () => {
         {cars.map((car) => (
           <Card key={car.id}>
             <Card.Image src={car.image} alt={car.name} />
-            <Card.Title>{car.name}</Card.Title>
-            <Card.Actions>
+            <Card.Title className="text-lg font-semibold text-center mt-2">{car.name}</Card.Title>
+            <Card.Actions className="flex justify-center p-4">
               <Button variant="default">
                 <Link href="/menu2">Detalhes</Link>
               </Button>
