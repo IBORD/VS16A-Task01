@@ -35,8 +35,8 @@ export const Card = ({ children, className = '' }: CardProps) => {
     </div>
   )
 }
-
-const CardImage = ({ src, alt, width = 400, height = 300 }: CardImageProps) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const CardImage = ({ src, alt }: CardImageProps) => {
   return (
     <div className="relative aspect-video">
       <Image
