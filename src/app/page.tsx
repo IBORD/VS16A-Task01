@@ -14,7 +14,7 @@ const HomePage: React.FC = () => {
             className="rounded-lg shadow-lg w-full h-auto object-cover"
           />
         </div>
-        <div className="text-base sm:text-lg font-medium text-gray-700 space-y-4">
+        <div className="text-base sm:text-lg space-y-4 font-bold mb-6">
           <p>
             Explore o mundo dos carros esportivos e clássicos. 
             Descubra os modelos mais rápidos, luxuosos e icônicos da história automotiva.
