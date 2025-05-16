@@ -1,7 +1,7 @@
 import  Header  from '@/components/header/Header';
 import  NavBar  from '@/components/navbar/NavBar';
 import  Footer  from '@/components/footer/Footer';
-import { FaHome, FaCar, FaHistory, FaImages, FaEnvelope } from 'react-icons/fa'
+import { FaHome, FaCar, FaHistory, FaImages, FaEnvelope, FaDesktop } from 'react-icons/fa'
 
 import './globals.css'
 
@@ -15,7 +15,9 @@ export default function RootLayout({
   { href: '/galeria', label: 'Galeria', icon: <FaImages /> },
   { href: '/menu2', label: 'Esportivos', icon: <FaCar /> },
   { href: '/menu3', label: 'Clássicos', icon: <FaHistory /> },
-  { href: '/contato', label: 'Contato', icon: <FaEnvelope /> }
+  { href: '/contato', label: 'Contato', icon: <FaEnvelope /> },
+  { href: '/tela-responsiva', label: 'Tela', icon: <FaDesktop /> }
+
 ];
 
   return (

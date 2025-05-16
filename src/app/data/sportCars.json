@@ -1,0 +1,6 @@
+[
+  { "id": 1, "name": "Porsche 911", "year": 2023, "topSpeed": "293 km/h", "image": "/images/porshe911.jpg" },
+  { "id": 2, "name": "Ferrari 488 GTB", "year": 2022, "topSpeed": "330 km/h", "image": "/images/ferrari.jpg" },
+  { "id": 3, "name": "Lamborghini Huracán", "year": 2023, "topSpeed": "325 km/h", "image": "/images/lambo.jpg" },
+  { "id": 4, "name": "McLaren 720S", "year": 2023, "topSpeed": "341 km/h", "image": "/images/mclaren.jpg" }
+]

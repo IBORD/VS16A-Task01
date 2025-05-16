@@ -1,18 +1,27 @@
-import React from 'react';
+'use client'
 
-const Menu2Page: React.FC = () => {
-  const sportsCars = [
-    { id: 1, name: 'Porsche 911', year: 2023, topSpeed: '293 km/h', image: '/images/porshe911.jpg' },
-    { id: 2, name: 'Ferrari 488 GTB', year: 2022, topSpeed: '330 km/h', image: '/images/ferrari.jpg' },
-    { id: 3, name: 'Lamborghini Huracán', year: 2023, topSpeed: '325 km/h', image: '/images/lambo.jpg' },
-    { id: 4, name: 'McLaren 720S', year: 2023, topSpeed: '341 km/h', image: '/images/mclaren.jpg' },
-  ];
+import React from 'react';
+import { useFetch } from '@/app/hooks/useFetch'
+
+interface Car {
+  id: number
+  name: string
+  year: number
+  topSpeed: string
+  image: string
+}
+
+const Menu2Page = () => {
+  const { data: sportsCars, loading, error } = useFetch<Car[]>('/api/sports-cars')
+
+  if (loading) return <p>Carregando...</p>
+  if (error) return <p className="text-red-500">Erro: {error}</p>
 
   return (
     <div className="p-6">
       <h2 className="text-2xl font-bold mb-6 text-blue-800">Modelos Esportivos</h2>
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {sportsCars.map(car => (
+        {sportsCars?.map(car => (
           <div
             key={car.id}
             className="bg-white shadow-lg rounded-xl overflow-hidden transition-transform transform hover:scale-105"
@@ -29,7 +38,7 @@ const Menu2Page: React.FC = () => {
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Menu2Page;
+export default Menu2Page
