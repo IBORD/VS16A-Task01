@@ -30,7 +30,7 @@ interface CardActionsProps {
 
 export const Card = ({ children, className = '' }: CardProps) => {
   return (
-    <div className={`bg-white rounded-lg shadow-md overflow-hidden ${className}`}>
+    <div className={`bg-blue-600 rounded-lg shadow-md overflow-hidden ${className}`}>
       {children}
     </div>
   )
