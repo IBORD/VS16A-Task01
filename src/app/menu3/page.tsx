@@ -31,8 +31,8 @@ const Menu3Page = () => {
               className="w-full h-48 object-cover"
             />
             <div className="p-4">
-              <h3 className="font-bold text-lg mb-2">{car.name}</h3>
-              <p>Valor estimado: {car.value}</p>
+              <h3 className="font-bold text-lg mb-2 text-gray-800">{car.name}</h3>
+              <p className='text-gray-600'>Valor estimado: {car.value}</p>
             </div>
           </div>
         ))}

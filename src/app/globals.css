@@ -1,8 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f1f0f0;
-  --foreground: #171717;
+  --background: #111827;
+  --foreground: #ffffff;
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'Fira Code', monospace;
 }
 
 @theme inline {
