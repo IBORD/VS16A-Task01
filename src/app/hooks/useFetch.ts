@@ -6,6 +6,10 @@ interface FetchState<T> {
   error: string | null
 }
 
+function isErrorWithMessage(error: unknown): error is { message: string } {
+  return typeof error === 'object' && error !== null && 'message' in error && typeof (error as any).message === 'string'
+}
+
 export function useFetch<T = unknown>(url: string) {
   const [state, setState] = useState<FetchState<T>>({
     data: null,
@@ -25,8 +29,12 @@ export function useFetch<T = unknown>(url: string) {
 
         const data: T = await response.json()
         setState({ data, loading: false, error: null })
-      } catch (error: any) {
-        setState({ data: null, loading: false, error: error.message || 'Erro ao buscar dados' })
+      } catch (error: unknown) {
+        if (isErrorWithMessage(error)) {
+          setState({ data: null, loading: false, error: error.message })
+        } else {
+          setState({ data: null, loading: false, error: 'Erro desconhecido ao buscar dados' })
+        }
       }
     }
 

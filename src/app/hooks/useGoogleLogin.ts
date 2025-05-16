@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { signInWithPopup } from "firebase/auth";
+import { signInWithPopup, User } from "firebase/auth";
 import { auth, googleProvider } from "@/app/firebase/firebase";
 
 interface UseGoogleLoginReturn {
-  user: any | null;
+  user: User | null;
   loading: boolean;
   error: string | null;
   loginWithGoogle: () => Promise<void>;
@@ -11,7 +11,7 @@ interface UseGoogleLoginReturn {
 }
 
 export function useGoogleLogin(): UseGoogleLoginReturn {
-  const [user, setUser] = useState<any | null>(null);
+  const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -21,8 +21,12 @@ export function useGoogleLogin(): UseGoogleLoginReturn {
     try {
       const result = await signInWithPopup(auth, googleProvider);
       setUser(result.user);
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("Erro desconhecido ao tentar logar");
+      }
     } finally {
       setLoading(false);
     }
@@ -34,8 +38,12 @@ export function useGoogleLogin(): UseGoogleLoginReturn {
     try {
       await auth.signOut();
       setUser(null);
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("Erro desconhecido ao tentar sair");
+      }
     } finally {
       setLoading(false);
     }
